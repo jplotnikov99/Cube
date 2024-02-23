@@ -4,6 +4,7 @@
 #include "line.hpp"
 #include "frame.hpp"
 #include "drawer.hpp"
+#include "operators.hpp"
 
 int main()
 {
