@@ -5,6 +5,8 @@
 
 namespace cube
 {
+    double truncate(const double &x);
+
     void v_add(Vec3D &p1, Vec3D &p2, Vec3D &res);
 
     void v_sub(Vec3D &p1, Vec3D &p2, Vec3D &res);

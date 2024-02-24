@@ -12,13 +12,15 @@ int main()
 
     Drawer D;
 
-    std::unique_ptr<Line> L = std::make_unique<Line>(0,0,0,-1,70,-20);
+    std::unique_ptr<Line> L = std::make_unique<Line>(0,0,0,0,20,20);
 
-    std::unique_ptr<Line> P = std::make_unique<Line>(0,40,-40,-1,74,-10);
+    Vec3D axis(1,0,0);
+
+    //D.draw_line(L);
+
+    L->rotate(M_PI / 2, axis);
 
     D.draw_line(L);
-
-    D.draw_line(P);
 
     D.show();
 

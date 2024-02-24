@@ -3,6 +3,15 @@
 namespace cube
 {
 
+    double truncate(const double &x)
+    {
+        if (fabs(x) < 1e-15)
+        {
+            return 0.;
+        }
+        return x;
+    }
+
     bool is_same(Vec3D &p1, Vec3D &p2)
     {
         if (fabs(p1.get_x() - p2.get_x()) > 1e-12)

@@ -91,6 +91,13 @@ namespace cube
         return line_vec->get_z()/line_vec->get_y();
     }
 
+    void Line::rotate(const double &angle, Vec3D &rot_axis)
+    {
+        v_rotate(angle, rot_axis, *start_point);
+        v_rotate(angle, rot_axis, *end_point);
+        connect();
+    }
+
     void Line::print()
     {
         std::cout << "Start point:\n";

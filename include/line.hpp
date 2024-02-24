@@ -18,6 +18,8 @@ namespace cube
         Line(const double &v1_x, const double &v1_y, const double &v1_z, const double &v2_x, const double &v2_y, const double &v2_z);
         Line(std::unique_ptr<Vec3D> &start, std::unique_ptr<Vec3D> &end);
 
+        void connect();
+
         void update_start(const double &v_x, const double &v_y, const double &v_z);
         void update_start(std::unique_ptr<Vec3D> &start);
         void update_end(const double &v_x, const double &v_y, const double &v_z);
@@ -31,7 +33,8 @@ namespace cube
         double get_xz_slope();
         double get_yz_slope();
 
-        void connect();
+        void rotate(const double &angle, Vec3D &rot_axis);
+
         void print();
 
         ~Line(){

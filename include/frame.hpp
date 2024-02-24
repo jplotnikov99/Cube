@@ -12,6 +12,7 @@ namespace cube
     typedef bool pixel;
     typedef std::vector<pixel> pixel_row;
     typedef std::vector<pixel_row> frame;
+
     class Frame
     {
     private:
