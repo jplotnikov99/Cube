@@ -32,6 +32,8 @@ namespace cube
         void set_z(const double &z);
         void set_xyz(const double &x, const double &y, const double &z);
 
+        void normalize();
+
         void print();
 
         ~Vec3D()

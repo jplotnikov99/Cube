@@ -5,11 +5,14 @@ namespace cube
 
     double truncate(const double &x)
     {
-        if (fabs(x) < 1e-15)
-        {
-            return 0.;
-        }
-        return x;
+        return x - (int)x;
+    }
+
+    void v_truncate(Vec3D &v, Vec3D &vres)
+    {
+        vres.set_x(truncate(v.get_x()));
+        vres.set_y(truncate(v.get_y()));
+        vres.set_z(truncate(v.get_z()));
     }
 
     bool is_same(Vec3D &p1, Vec3D &p2)
@@ -37,11 +40,18 @@ namespace cube
         res.set_z(p1.get_z() - p2.get_z());
     }
 
-    void v_div_s(Vec3D &p1, const double N)
+    void v_div_s(Vec3D &p1, const double &N)
     {
         p1.set_x(p1.get_x() / N);
         p1.set_y(p1.get_y() / N);
         p1.set_z(p1.get_z() / N);
+    }
+
+    void v_mult_s(Vec3D &v, const double &N)
+    {
+        v.set_x(v.get_x() * N);
+        v.set_y(v.get_y() * N);
+        v.set_z(v.get_z() * N);
     }
 
     void q_add(Quaterion &q1, Quaterion &q2, Quaterion &res)

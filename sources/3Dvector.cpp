@@ -71,6 +71,14 @@ namespace cube
         return *vec;
     }
 
+    void Vec3D::normalize()
+    {
+        len = get_len();
+        vec->at(0) /= len;
+        vec->at(1) /= len;
+        vec->at(2) /= len;
+    }
+
     void Vec3D::print()
     {
         std::cout << "(";

@@ -19,6 +19,14 @@ namespace cube
         connect();
     }
 
+    Line::Line(Vec3D &start, Vec3D &end)
+    {
+        start_point = std::make_unique<Vec3D>(start.get_x(), start.get_y(), start.get_z());
+        end_point = std::make_unique<Vec3D>(end.get_x(), end.get_y(), end.get_z());
+        line_vec = std::make_unique<Vec3D>();
+        connect();
+    }
+
     Line::Line(std::unique_ptr<Vec3D> &start, std::unique_ptr<Vec3D> &end)
     {
         start_point = std::move(start);
@@ -76,19 +84,6 @@ namespace cube
     double Line::get_length()
     {
         return lenght;
-    }
-
-    double Line::get_xy_slope()
-    {
-        return line_vec->get_y()/line_vec->get_x();
-    }
-    double Line::get_xz_slope()
-    {
-        return line_vec->get_z()/line_vec->get_x();
-    }
-    double Line::get_yz_slope()
-    {
-        return line_vec->get_z()/line_vec->get_y();
     }
 
     void Line::rotate(const double &angle, Vec3D &rot_axis)

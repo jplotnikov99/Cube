@@ -18,7 +18,13 @@ namespace cube
     public:
         Drawer();
 
+        void vec_to_pixel(std::unique_ptr<Vec3D> &v);
+
         void draw_line(std::unique_ptr<Line> &l);
+
+        void draw_shape(std::unique_ptr<Shapes> &s);
+
+        void clear_frame();
 
         void show();
 
