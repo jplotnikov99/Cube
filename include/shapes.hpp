@@ -14,7 +14,9 @@ namespace cube
 
         size_t get_N_lines();
 
-        void cube(const double size);
+        void cube(const double &size);
+
+        void pyramid(const double &base, const double &height);
 
         void rotate(const double &angle, Vec3D &rot_axis);
 

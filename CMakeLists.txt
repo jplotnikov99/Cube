@@ -7,6 +7,10 @@ project(
 
 add_compile_options(-O3)
 
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+
+
 add_subdirectory(sources)
 
 set(include_dir ${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -17,4 +21,4 @@ add_executable(main main.cpp)
 
 target_include_directories(main PRIVATE ${include_dir})
 
-target_link_libraries(main PRIVATE sources)
+target_link_libraries(main PRIVATE sources ${CURSES_LIBRARIES})

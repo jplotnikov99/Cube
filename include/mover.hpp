@@ -3,6 +3,7 @@
 #include <memory>
 #include <chrono>
 #include <thread>
+#include <ncurses.h>
 #include "drawer.hpp"
 
 namespace cube
@@ -15,6 +16,7 @@ namespace cube
 
     public:
         void init_cube(const double &N);
+        void init_pyramid(const double &base, const double &height);
 
         void rot_x(const double &sign);
         void rot_y(const double &sign);

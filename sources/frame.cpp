@@ -109,6 +109,7 @@ namespace cube
     void Frame::show()
     {
         system("clear");
+        int k = 0;
         for (auto it : *F)
         {
             for (auto jt : it)
@@ -122,7 +123,7 @@ namespace cube
                     std::cout << empty;
                 }
             }
-            std::cout << "\n";
+            std::cout << "\r\n";
         }
     }
 

@@ -13,6 +13,11 @@ namespace cube
         S->cube(N);
     }
 
+    void Mover::init_pyramid(const double &base, const double &height)
+    {
+        S->pyramid(base, height);
+    }
+
     void Mover::rot_x(const double &sign)
     {
         Vec3D axis(1, 0, 0);
@@ -53,44 +58,49 @@ namespace cube
     void Mover::control()
     {
         std::unique_ptr<Drawer> D = std::make_unique<Drawer>();
+
+        int direction;
+
+        initscr();
+        raw();
+        keypad(stdscr, TRUE);
+        noecho();
         D->draw_shape(S);
         D->show();
 
         while (1)
         {
-            std::string direction;
-            std::cin >> direction;
+            direction = getch();
 
-            if (direction == "a")
+            switch (direction)
             {
-                rot_z(1.);
-                D->clear_frame();
-                D->draw_shape(S);
-                D->show();
-            }
-            else if (direction == "d")
-            {
-                rot_z(-1.);
-                D->clear_frame();
-                D->draw_shape(S);
-                D->show();
-            }
-            else if (direction == "w")
-            {
+            case KEY_UP:
                 rot_y(1.);
                 D->clear_frame();
                 D->draw_shape(S);
                 D->show();
-            }
-            else if (direction == "s")
-            {
+                break;
+            case KEY_DOWN:
                 rot_y(-1.);
                 D->clear_frame();
                 D->draw_shape(S);
                 D->show();
-            }
-            else if (direction == "q")
-            {
+                break;
+            case KEY_LEFT:
+                rot_z(1.);
+                D->clear_frame();
+                D->draw_shape(S);
+                D->show();
+                break;
+            case KEY_RIGHT:
+                rot_z(-1.);
+                D->clear_frame();
+                D->draw_shape(S);
+                D->show();
+                break;
+            default:
+                endwin();
+                exit(0);
                 break;
             }
         }

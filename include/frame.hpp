@@ -16,8 +16,8 @@ namespace cube
     class Frame
     {
     private:
-        const std::uint16_t HEIGHT = 101;
-        const std::uint16_t WIDTH = 151;
+        const std::uint16_t HEIGHT = 151;
+        const std::uint16_t WIDTH = 225;
         const std::string empty = "* ";
         const std::string full = "0 ";
         std::unique_ptr<frame> F;
