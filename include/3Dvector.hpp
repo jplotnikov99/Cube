@@ -3,7 +3,7 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
-#include "types.hpp"
+#include <memory>
 
 namespace cube
 {

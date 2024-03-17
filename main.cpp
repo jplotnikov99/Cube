@@ -1,19 +1,25 @@
 #include <iostream>
 #include <vector>
 #include <ncurses.h>
-#include "shapes.hpp"
 #include "mover.hpp"
-#include "operators.hpp"
+#include "puzzle.hpp"
 
 int main()
 {
     using namespace cube;
 
-    Mover M;
+    // Mover M;
+    // M.init_cube(30.971);
+    // M.control();
 
-    M.init_pyramid(50,40);
+    std::unique_ptr<Piece> p = std::make_unique<Piece>(1);
+    Puzzle puz;
 
-    M.animate();
-
+    p->configure(2);
+    p->set_y_pos(3);
+    p->set_z_pos(4);
+    std::cout << puz.check_y_fit(p) << std::endl;
+    std::cout << puz.check_z_fit(p) << std::endl;
+    
     return 0;
 }
