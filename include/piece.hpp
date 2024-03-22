@@ -4,9 +4,7 @@
 
 namespace cube
 {
-    typedef std::vector<size_t> line;
-    typedef std::vector<line> area;
-    typedef std::vector<area> volume;
+
     enum Direction
     {
         left,
@@ -30,7 +28,6 @@ namespace cube
         Direction nose;
         static const size_t N_configurations = 24;
         size_t cur_configuration = 0;
-        volume shape;
 
     public:
         Piece(const size_t piece_ID);
@@ -45,10 +42,9 @@ namespace cube
         Direction get_tail_dir();
         Direction get_nose_dir();
         size_t get_N_configurations();
-        volume get_shape();
         void configure(const size_t N);
+        void reset_configuration();
         bool next_configuration();
-        void print();
         ~Piece(){};
     };
 } // namespace cube

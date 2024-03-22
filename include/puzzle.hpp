@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include "spot.hpp"
 #include "piece.hpp"
 
 namespace cube
@@ -47,25 +48,34 @@ namespace cube
         return false;                    \
     }                                    \
     return true;
+
+    
+
+    typedef std::vector<Spot> line;
+    typedef std::vector<line> area;
+    typedef std::vector<area> volume;
+
     class Puzzle
     {
     private:
         volume cube;
         std::vector<std::unique_ptr<Piece>> pieces;
-        enum Side
-        {
-            left,
-            right,
-            top
-        };
+        size_t cur_piece = 0;
 
     public:
         Puzzle();
+        void update_neighbours(const Spot &a);
+        bool is_free(std::unique_ptr<Piece> &p);
+        bool next_step(std::unique_ptr<Piece> &p);
         bool check_x_fit(std::unique_ptr<Piece> &p);
         bool check_y_fit(std::unique_ptr<Piece> &p);
         bool check_z_fit(std::unique_ptr<Piece> &p);
-        bool does_piece_fit(std::unique_ptr<Piece> &p, const Side side);
-        void put_next_piece(std::unique_ptr<Piece> &p, const Side side);
+        bool does_piece_fit(std::unique_ptr<Piece> &p);
+        size_t get_N_neighbours(const size_t i, const size_t j, const size_t k);
+        void put_piece(std::unique_ptr<Piece> &p);
+        void remove_piece(std::unique_ptr<Piece> &p);
+        void reset_piece(std::unique_ptr<Piece> &p);
+        void forward_track();
 
         void print();
         ~Puzzle(){};
