@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <cstdint>
 #include "frame.hpp"
 #include "line.hpp"
 #include "shapes.hpp"
