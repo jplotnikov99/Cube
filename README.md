@@ -8,3 +8,4 @@ You can build the program with
         make 
 
 Make sure that your terminal window is large enough (zoomed out enough) to see the entire cube.
+You can rotate the cube via arrow keys. Draw your own shape and rotate it too. Example in main.cpp
