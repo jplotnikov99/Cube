@@ -12,9 +12,9 @@ namespace cube
     {
     private:
         const double dtheta = 1 / (20 * M_PI);
-        std::unique_ptr<Shapes> S = std::make_unique<Shapes>();
 
     public:
+        std::unique_ptr<Shapes> S = std::make_unique<Shapes>();
         void init_cube(const double &N);
         void init_pyramid(const double &base, const double &height);
 
